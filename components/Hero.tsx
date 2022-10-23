@@ -1,5 +1,6 @@
 import React from "react";
-import Link from "next/link";
+// import Link from "next/link";
+import { Link } from "react-scroll";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import BackgroundCircles from "./BackgroundCircles";
 
@@ -36,10 +37,13 @@ function Hero({}: Props) {
         </h1>
 
         <div className="pt-5">
-          <Link href="#about">
+          {/* <Link href="#about">
+            <button className="heroButton">About</button>
+          </Link> */}
+          <Link to="about" spy={true} smooth={true}>
             <button className="heroButton">About</button>
           </Link>
-          <Link href="#experience">
+          {/* <Link href="#experience">
             <button className="heroButton">Experience</button>
           </Link>
           <Link href="#skills">
@@ -47,7 +51,7 @@ function Hero({}: Props) {
           </Link>
           <Link href="#projects">
             <button className="heroButton">Projects</button>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </div>
