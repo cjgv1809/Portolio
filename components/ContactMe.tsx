@@ -1,6 +1,7 @@
 import React from "react";
 import { PhoneIcon, MapPinIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { motion } from "framer-motion";
 
 type Inputs = {
   name: string;
@@ -20,36 +21,47 @@ function ContactMe({}: Props) {
   const onSubmit: SubmitHandler<Inputs> = (formData) => console.log(formData);
 
   return (
-    <div className="h-screen flex flex-col relative text-left md:flex-row max-w-7xl px-10 justify-evenly items-center mx-auto">
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+    <div className="h-screen flex flex-col relative text-left md:max-w-7xl px-5 md:px-10 justify-evenly items-center mx-auto">
+      <h3 className="absolute top-14 md:top-20 uppercase tracking-[20px] text-gray-500 text-lg md:text-2xl">
         Contact
       </h3>
 
-      <div className="flex flex-col space-y-4 mt-32">
-        <h4 className="text-3xl font-semibold text-center">
-          I have got just what you need.{" "}
+      <div className="flex flex-col space-y-4 mt-20 md:mt-32 lg:mt-24 max-w-sm sm:max-w-lg">
+        <h4 className="hidden md:flex md:flex-col text-base md:text-3xl font-semibold text-center">
+          I have got just what you need. <br />
           <span className="underline decoration-[#F7AB0A]/50">Let's Talk.</span>
         </h4>
 
         <div className="space-y-4">
+          {/* <div className="flex items-center justify-center space-x-5">
+            <PhoneIcon className="h-5 w-5 md:h-7 md:w-7 text-[#F7AB0A] animate-pulse" />
+            <p className="text-base md:text-2xl">+1 (123) 456-7890</p>
+          </div> */}
+
           <div className="flex items-center justify-center space-x-5">
-            <PhoneIcon className="h-7 w-7 text-[#F7AB0A] animate-pulse" />
-            <p className="text-2xl">+1 (123) 456-7890</p>
+            <EnvelopeIcon className="h-5 w-5 md:h-7 md:w-7 text-[#F7AB0A] animate-pulse" />
+            <p className="text-base md:text-2xl font-medium ">
+              carlos_gomes1809@hotmail.com
+            </p>
           </div>
 
           <div className="flex items-center justify-center space-x-5">
-            <EnvelopeIcon className="h-7 w-7 text-[#F7AB0A] animate-pulse" />
-            <p className="text-2xl">carlos_gomes1809@hotmail.com</p>
+            <MapPinIcon className="h-5 w-5 md:h-7 md:w-7 text-[#F7AB0A] animate-pulse" />
+            <p className="text-base md:text-2xl font-medium">
+              Buenos Aires, Argentina
+            </p>
           </div>
 
-          <div className="flex items-center justify-center space-x-5">
-            <MapPinIcon className="h-7 w-7 text-[#F7AB0A] animate-pulse" />
-            <p className="text-2xl">123 Dev Lane</p>
-          </div>
-
-          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
-            <div className="flex flex-col space-y-2 w-fit mx-auto">
-              <div className="flex space-x-2">
+          <motion.form
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2 }}
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col"
+          >
+            <div className="flex flex-col space-y-2 w-full xl:w-fit md:mx-auto">
+              <div className="flex flex-col xl:flex xl:flex-row xl:space-x-2">
                 <input
                   {...register("name", { required: true })}
                   className="contactInput"
@@ -58,7 +70,7 @@ function ContactMe({}: Props) {
                 />
                 <input
                   {...register("email", { required: true })}
-                  className="contactInput"
+                  className="contactInput mt-2 xl:mt-0"
                   type="email"
                   placeholder="Enter your email"
                 />
@@ -81,7 +93,7 @@ function ContactMe({}: Props) {
                 Send
               </button>
             </div>
-          </form>
+          </motion.form>
         </div>
       </div>
     </div>

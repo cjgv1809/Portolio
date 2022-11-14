@@ -58,5 +58,11 @@ export default {
       type: "array",
       of: [{ type: "reference", to: { type: "skill" } }],
     },
+    {
+      name: "points",
+      title: "Points",
+      type: "array",
+      of: [{ type: "string" }],
+    },
   ],
 };

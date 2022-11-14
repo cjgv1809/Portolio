@@ -47,6 +47,9 @@ module.exports = {
         "neutral-900": "#1F2937",
       },
     },
+    fontFamily: {
+      sans: ["Montserrat", "sans-serif"],
+    },
   },
   plugins: [require("tailwind-scrollbar")],
 };

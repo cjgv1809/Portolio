@@ -2,12 +2,15 @@ import React from "react";
 import Link from "next/link";
 import { SocialIcon } from "react-social-icons";
 import { motion } from "framer-motion";
+import { Social } from "../typings";
 
-type Props = {};
+type Props = {
+  socials: Social[];
+};
 
-function Header({}: Props) {
+function Header({ socials }: Props) {
   return (
-    <header className="sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center">
+    <header className="sticky top-0 p-5 flex items-start justify-between w-full z-20 xl:items-center">
       <motion.div
         initial={{ x: -500, opacity: 0, scale: 0.5 }}
         animate={{ x: 0, opacity: 1, scale: 1 }}
@@ -15,20 +18,16 @@ function Header({}: Props) {
         className="flex items-center"
       >
         {/* Social Icons */}
-        <SocialIcon
-          url="https://www.linkedin.com/in/carlosgomesvallejo/"
-          target="_blank"
-          fgColor="gray"
-          bgColor="transparent"
-          style={{ height: 35, width: 35 }}
-        />
-        <SocialIcon
-          url="https://www.github.com/cjgv1809/"
-          target="_blank"
-          fgColor="gray"
-          bgColor="transparent"
-          style={{ height: 35, width: 35 }}
-        />
+        {socials?.map((social) => (
+          <SocialIcon
+            key={social._id}
+            url={social.url}
+            target="_blank"
+            fgColor="gray"
+            bgColor="transparent"
+            style={{ height: 35, width: 35 }}
+          />
+        ))}
       </motion.div>
 
       <Link href="#contact">
@@ -36,7 +35,7 @@ function Header({}: Props) {
           initial={{ x: 500, opacity: 0, scale: 0.5 }}
           animate={{ x: 0, opacity: 1, scale: 1 }}
           transition={{ duration: 1.5 }}
-          className="flex items-center text-gray-300 cursor-pointer"
+          className="flex px-5 items-center text-gray-300 cursor-pointer"
         >
           <SocialIcon
             className="cursor-pointer"

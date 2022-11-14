@@ -1,56 +1,59 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Experience } from "../typings";
+import { urlFor } from "../sanity";
 
-type Props = {};
+type Props = {
+  experience: Experience;
+};
 
-function ExperienceCard({}: Props) {
+function ExperienceCard({ experience }: Props) {
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
+  if (!hydrated) {
+    // Returns null on first render, so the client and server match
+    return null;
+  }
+
   return (
-    <article className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-96 max-h-96 overflow-y-auto scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 snap-center bg-[#292929] p-10 mt-20 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden">
+    <article className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-96 max-h-96 overflow-y-auto scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 snap-center bg-[#292929] p-10 mt-20 hover:scale-105 hover:bg-[#F7AB0A]/10 cursor-pointer transition-all duration-300 overflow-hidden">
       <motion.img
         initial={{ y: -100, opacity: 0 }}
         transition={{ duration: 1.2 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
         className="w-32 h-32 rounded-full object-cover object-center"
-        src="
-      https://cdn.sanity.io/images/ltuexkre/production/050ee674d199aa8d254af2b5ea480d3dc320cbb1-1240x1440.png"
+        src={urlFor(experience?.companyImage).url()}
         alt=""
       />
 
       <div className="px-0 md:px-10">
-        <h4 className="text-2xl font-light">CEO of PAPAFAM</h4>
-        <p className="font-bold text-xl mt-1">PAPAFAM</p>
+        <h4 className="text-2xl font-light">{experience?.jobTitle}</h4>
+        <p className="font-bold text-xl mt-1">{experience?.company}</p>
         <div className="flex space-x-2 my-2">
-          <img
-            className="w-10 h-10 rounded-full object-cover object-center"
-            src="https://cdn.sanity.io/images/ltuexkre/production/2a67945990f9c2ef568cf7e8483c1a8174556463-500x500.png"
-            alt=""
-          />
-          <img
-            className="w-10 h-10 rounded-full object-cover object-center"
-            src="https://cdn.sanity.io/images/ltuexkre/production/2a67945990f9c2ef568cf7e8483c1a8174556463-500x500.png"
-            alt=""
-          />
-          <img
-            className="w-10 h-10 rounded-full object-cover object-center"
-            src="https://cdn.sanity.io/images/ltuexkre/production/2a67945990f9c2ef568cf7e8483c1a8174556463-500x500.png"
-            alt=""
-          />
-          <img
-            className="w-10 h-10 rounded-full object-cover object-center"
-            src="https://cdn.sanity.io/images/ltuexkre/production/2a67945990f9c2ef568cf7e8483c1a8174556463-500x500.png"
-            alt=""
-          />
+          {experience.technologies?.map((technology) => (
+            <img
+              className="w-10 h-10 rounded-full object-cover object-center"
+              key={technology._id}
+              src={urlFor(technology.image).url()}
+              alt=""
+            />
+          ))}
         </div>
         <p className="uppercase py-5 text-gray-300 text-base">
-          Started work... - Ended...
+          {new Date(experience?.startDate).toLocaleDateString()} -{" "}
+          {experience?.isCurrentlyWorkingHere
+            ? "Present"
+            : new Date(experience?.endDate).toLocaleDateString()}
         </p>
 
         <ul className="list-disc space-y-4 ml-5 text-sm">
-          <li>Summary points</li>
-          <li>Summary points</li>
-          <li>Summary points</li>
-          <li>Summary points</li>
+          {experience?.points?.map((point, index) => (
+            <li key={index}>{point}</li>
+          ))}
         </ul>
       </div>
     </article>
