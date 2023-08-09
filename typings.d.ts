@@ -41,7 +41,7 @@ export interface Skill extends SanityBody {
 
 export interface Experience extends SanityBody {
   _type: "experience";
-  company: string;
+  companyName: string;
   companyImage: Image;
   startDate: date;
   endDate: date;

@@ -19,7 +19,7 @@ function ExperienceCard({ experience }: Props) {
   }
 
   return (
-    <article className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-96 max-h-96 overflow-y-auto scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 snap-center bg-[#292929] p-10 mt-20 hover:scale-105 hover:bg-[#F7AB0A]/10 cursor-pointer transition-all duration-300 overflow-hidden">
+    <article className="flex flex-col rounded-lg items-center flex-shrink-0 w-96 max-h-96 overflow-y-auto scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 snap-center bg-[#292929] p-10 mt-20 hover:scale-105 hover:bg-[#F7AB0A]/10 cursor-pointer transition-all duration-300 overflow-hidden">
       <motion.img
         initial={{ y: -100, opacity: 0 }}
         transition={{ duration: 1.2 }}
@@ -31,8 +31,8 @@ function ExperienceCard({ experience }: Props) {
       />
 
       <div className="px-0 md:px-10">
-        <h4 className="text-2xl font-light">{experience?.jobTitle}</h4>
-        <p className="font-bold text-xl mt-1">{experience?.company}</p>
+        <p className="font-bold text-xl">{experience?.companyName}</p>
+        <h4 className="text-2xl font-light mt-3">{experience?.jobTitle}</h4>
         <div className="flex space-x-2 my-2">
           {experience.technologies?.map((technology) => (
             <img

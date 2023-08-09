@@ -15,7 +15,7 @@ function About({ pageInfo }: Props) {
       transition={{ duration: 1.5 }}
       className="h-screen flex flex-col relative text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly items-center mx-auto"
     >
-      <h3 className="absolute top-14 md:top-20 uppercase tracking-[20px] text-gray-500 text-lg md:text-2xl">
+      <h3 className="absolute top-14 md:top-16 uppercase tracking-[20px] text-center text-gray-500 text-lg md:text-2xl">
         About
       </h3>
 
@@ -35,15 +35,7 @@ function About({ pageInfo }: Props) {
             Here is a little background
           </h4>
           <p className="text-lg text-gray-400">
-            {pageInfo?.backgroundInformation}{" "}
-            <a
-              href="https://www.thesmartgroup.com/"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="text-[#F7AB0A] hover:underline"
-            >
-              The Smart Group
-            </a>
+            {pageInfo?.backgroundInformation}
           </p>
         </div>
       </div>

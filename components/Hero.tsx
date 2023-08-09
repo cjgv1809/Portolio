@@ -5,7 +5,6 @@ import { Cursor, useTypewriter } from "react-simple-typewriter";
 import BackgroundCircles from "./BackgroundCircles";
 import { PageInfo } from "../typings";
 import { urlFor } from "../sanity";
-import { Router } from "next/router";
 
 type Props = {
   pageInfo: PageInfo;
@@ -21,6 +20,7 @@ function Hero({ pageInfo }: Props) {
       `Hi, my name is ${pageInfo?.name}.`,
       "UX/UI developer",
       "Frontend developer",
+      "React Native developer",
     ],
   });
 

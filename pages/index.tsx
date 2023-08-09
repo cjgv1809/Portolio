@@ -1,6 +1,9 @@
 import type { GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
+// import { Link, animateScroll as scroll } from "react-scroll";
+import { motion } from "framer-motion";
+import { ChevronDoubleUpIcon } from "@heroicons/react/24/solid";
 import About from "../components/About";
 import ContactMe from "../components/ContactMe";
 import Header from "../components/Header";
@@ -67,13 +70,19 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
 
       {/* Footer */}
       <Link href="#hero">
-        <footer className="absolute bottom-0 right-10 cursor-pointer">
+        <footer className="absolute xs:bottom-10 xs:right-10 bottom-10 right-10 cursor-pointer">
           <div className="flex justify-center xl:justify-end">
-            <img
-              className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer"
-              src="https://i.imgur.com/e2yvD6A.png"
-              alt=""
-            />
+            <motion.div
+              animate={{ y: [0, 24, 0] }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                repeatType: "loop",
+              }}
+              className="bg-[#F7AB0A] p-2 rounded-full"
+            >
+              <ChevronDoubleUpIcon className="h-5 w-5 text-[rgb(36,36,36)] rounded-full filter grayscale hover:grayscale-0 cursor-pointer" />
+            </motion.div>
           </div>
         </footer>
       </Link>
