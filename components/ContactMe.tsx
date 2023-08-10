@@ -7,6 +7,8 @@ import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { PageInfo } from "../typings";
+import { formatPhoneNumber } from "../utils/formatPhoneNumber";
 
 type Inputs = {
   name: string;
@@ -14,9 +16,11 @@ type Inputs = {
   message: string;
 };
 
-type Props = {};
+type Props = {
+  pageInfo: PageInfo;
+};
 
-function ContactMe({}: Props) {
+function ContactMe({ pageInfo }: Props) {
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Name is required"),
     email: Yup.string().required("Email is required").email("Email is invalid"),
@@ -79,8 +83,8 @@ function ContactMe({}: Props) {
             </span>
           </h4>
 
-          <div className="flex items-center">
-            <div className="fixed left-0 top-1/2 transform -translate-y-1/2 flex flex-col">
+          <div className="flex items-center 7xl:relative">
+            <div className="fixed 7xl:absolute left-0 top-1/2 transform -translate-y-1/2 flex flex-col">
               <div className="hidden group cursor-pointer p-2 space-x-2 transition-all duration-200 ease-in-out bg-slate-200/20 rounded-t xl:flex xl:items-center relative hover:rounded-tr-none">
                 <PhoneIcon className="h-5 w-5 md:h-7 md:w-7 text-[#F7AB0A] animate-pulse" />
                 <motion.p
@@ -89,7 +93,7 @@ function ContactMe({}: Props) {
                   transition={{ duration: 0.5 }}
                   className="hidden text-sm whitespace-nowrap text-white font-semibold absolute left-full transform -translate-y-1/2 xl:group-hover:block bg-slate-200/20 p-3 rounded-l-none rounded"
                 >
-                  +54 9 11 2386-6593
+                  {formatPhoneNumber({ phoneNumber: pageInfo?.phoneNumber })}
                 </motion.p>
               </div>
               <div className="hidden group cursor-pointer p-2 space-x-2 transition-all duration-200 ease-in-out bg-slate-200/20 xl:flex xl:items-center relative">
@@ -100,7 +104,7 @@ function ContactMe({}: Props) {
                   transition={{ duration: 0.5 }}
                   className="hidden text-sm whitespace-nowrap text-white font-semibold absolute left-full transform -translate-y-1/2 xl:group-hover:block bg-slate-200/20 p-3 rounded-l-none rounded"
                 >
-                  carlos_gomes1809@hotmail.com
+                  {pageInfo?.email}
                 </motion.p>
               </div>
               <div className="hidden group cursor-pointer p-2 space-x-2 transition-all duration-200 ease-in-out bg-slate-200/20 rounded-b xl:flex xl:items-center relative hover:rounded-br-none">
@@ -111,7 +115,7 @@ function ContactMe({}: Props) {
                   transition={{ duration: 0.5 }}
                   className="hidden text-sm whitespace-nowrap text-white font-semibold absolute left-full transform -translate-y-1/2 xl:group-hover:block bg-slate-200/20 p-3 rounded-l-none rounded"
                 >
-                  Buenos Aires, Argentina
+                  {pageInfo?.address}
                 </motion.p>
               </div>
             </div>
@@ -180,7 +184,7 @@ function ContactMe({}: Props) {
                 </div>
                 <button
                   type="submit"
-                  className="bg-[#F7AB0A] mt-4 py-3 px-6 rounded text-black font-bold text-lg disabled:bg-slate-400 disabled:text-white"
+                  className="bg-[#F7AB0A] mt-4 py-3 px-6 rounded text-[rgb(36,36,36)] font-bold text-lg disabled:bg-slate-400 disabled:text-white"
                   disabled={isLoading}
                 >
                   {isLoading ? "Sending..." : "Send"}

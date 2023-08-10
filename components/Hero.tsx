@@ -40,7 +40,7 @@ function Hero({ pageInfo }: Props) {
           <Cursor cursorColor="#F7AB0A" />
         </h1>
 
-        <div className="pt-5">
+        <nav className="pt-5">
           <Link href="#about">
             <button className="heroButton">About</button>
           </Link>
@@ -53,7 +53,7 @@ function Hero({ pageInfo }: Props) {
           <Link href="#projects">
             <button className="heroButton">Projects</button>
           </Link>
-        </div>
+        </nav>
       </div>
     </div>
   );

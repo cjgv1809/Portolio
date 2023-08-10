@@ -21,6 +21,10 @@ interface File {
   asset: SanityAsset;
 }
 
+export interface FormatPhoneNumberProps {
+  phoneNumber: string;
+}
+
 export interface PageInfo extends SanityBody {
   _type: "pageInfo";
   address: string;
