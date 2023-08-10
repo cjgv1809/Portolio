@@ -10,7 +10,7 @@ type Props = {
 
 function Skill({ directionLeft, skill }: Props) {
   return (
-    <div className="group cursor-pointer flex flex-col justify-center items-center">
+    <div className="group cursor-pointer flex flex-col justify-between items-center">
       <motion.img
         initial={{
           x: directionLeft ? -200 : 200,

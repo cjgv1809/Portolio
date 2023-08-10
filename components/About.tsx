@@ -30,14 +30,20 @@ function About({ pageInfo }: Props) {
           className="mt-20 md:mt-0 flex-shrink-0 w-32 h-32 sm:w-56 sm:h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-64 border-4 border-[#F7AB0A]"
         />
 
-        <div className="space-y-10 px-0 md:px-10">
+        <motion.div
+          initial={{ x: 200, opacity: 0 }}
+          transition={{ duration: 1.2 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          className="space-y-10 px-0 md:px-10"
+        >
           <h4 className="hidden sm:flex  md:text-4xl font-semibold">
             Here is a little background
           </h4>
           <p className="text-lg text-gray-400">
             {pageInfo?.backgroundInformation}
           </p>
-        </div>
+        </motion.div>
       </div>
     </motion.div>
   );

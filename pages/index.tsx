@@ -1,7 +1,6 @@
 import type { GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
-// import { Link, animateScroll as scroll } from "react-scroll";
 import { motion } from "framer-motion";
 import { ChevronDoubleUpIcon } from "@heroicons/react/24/solid";
 import About from "../components/About";
@@ -17,6 +16,8 @@ import { fetchPageInfo } from "../utils/fetchPageInfo";
 import { fetchProjects } from "../utils/fetchProjects";
 import { fetchSkills } from "../utils/fetchSkills";
 import { fetchSocials } from "../utils/fetchSocials";
+import { useEffect } from "react";
+import { handleSmoothScroll } from "../utils/updateHashUrl";
 
 type Props = {
   pageInfo: PageInfo;
@@ -27,6 +28,27 @@ type Props = {
 };
 
 const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
+  // useEffect(() => {
+  //   const scrollSnap = document.querySelector(".snap-y");
+  //   scrollSnap?.addEventListener("wheel", (e) => {
+  //     e.preventDefault();
+  //     scrollSnap.scrollBy({
+  //       top: e.deltaY * 2,
+  //     });
+  //   });
+  // }, []);
+
+  // useEffect(() => {
+  //   const delay = 1000; // Set the delay in milliseconds
+  //   const timeoutId = setTimeout(() => {
+  //     const cleanupFunction = handleSmoothScroll();
+  //     return () => {
+  //       clearTimeout(timeoutId);
+  //       cleanupFunction();
+  //     };
+  //   }, delay);
+  // }, []);
+
   return (
     <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-auto overflow-x-hidden scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 z-0">
       <Head>

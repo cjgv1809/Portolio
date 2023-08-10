@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-// import { Link } from "react-scroll";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import BackgroundCircles from "./BackgroundCircles";
 import { PageInfo } from "../typings";

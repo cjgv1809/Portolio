@@ -3,10 +3,14 @@ import { Dialog, Transition } from "@headlessui/react";
 
 type Props = {
   isOpen: boolean;
+  message: string;
   closeModal: () => void;
 };
 
-function Modal({ isOpen, closeModal }: Props) {
+function Modal({ isOpen, message, closeModal }: Props) {
+  console.log("isOpen", isOpen);
+  console.log("message", message);
+  console.log("closeModal", closeModal);
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -41,9 +45,7 @@ function Modal({ isOpen, closeModal }: Props) {
                   Error
                 </Dialog.Title>
                 <div className="mt-2">
-                  <p className="text-base text-white">
-                    Please fill all the required fields
-                  </p>
+                  <p className="text-base text-white">{message}</p>
                 </div>
 
                 <div className="mt-4 flex justify-end">

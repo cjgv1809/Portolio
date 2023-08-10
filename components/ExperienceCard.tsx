@@ -31,9 +31,9 @@ function ExperienceCard({ experience }: Props) {
       />
 
       <div className="px-0 md:px-10">
-        <p className="font-bold text-xl">{experience?.companyName}</p>
-        <h4 className="text-2xl font-light mt-3">{experience?.jobTitle}</h4>
-        <div className="flex space-x-2 my-2">
+        <p className="font-light text-xl">{experience?.companyName}</p>
+        <h4 className="text-2xl font-bold mt-3">{experience?.jobTitle}</h4>
+        <div className="flex justify-center items-center flex-wrap gap-2 my-2">
           {experience.technologies?.map((technology) => (
             <img
               className="w-10 h-10 rounded-full object-cover object-center"
@@ -43,16 +43,18 @@ function ExperienceCard({ experience }: Props) {
             />
           ))}
         </div>
-        <p className="uppercase py-5 text-gray-300 text-base">
+        <p className="uppercase py-5 text-gray-300 text-base font-extralight">
           {new Date(experience?.startDate).toLocaleDateString()} -{" "}
           {experience?.isCurrentlyWorkingHere
             ? "Present"
             : new Date(experience?.endDate).toLocaleDateString()}
         </p>
 
-        <ul className="list-disc space-y-4 ml-5 text-sm">
+        <ul className="list-disc space-y-4 ml-5">
           {experience?.points?.map((point, index) => (
-            <li key={index}>{point}</li>
+            <li key={index} className="text-sm text-gray-300 font-medium">
+              {point}
+            </li>
           ))}
         </ul>
       </div>
