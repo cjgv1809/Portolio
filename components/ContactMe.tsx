@@ -1,5 +1,10 @@
 import React, { useRef, useState } from "react";
-import { PhoneIcon, MapPinIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
+import {
+  PhoneIcon,
+  MapPinIcon,
+  EnvelopeIcon,
+  PaperAirplaneIcon,
+} from "@heroicons/react/24/solid";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
@@ -132,15 +137,18 @@ function ContactMe({ pageInfo }: Props) {
               <div className="flex flex-col w-full">
                 <div className="flex flex-col xl:flex xl:flex-row xl:space-x-2">
                   <div className="flex-1">
+                    <label htmlFor="name" className="sr-only">
+                      Name
+                    </label>
                     <input
                       {...register("name")}
                       className={`contactInput ${
                         errors?.name && `border-red-500`
                       }`}
+                      id="name"
                       name="name"
                       type="text"
                       placeholder="Enter your name (required)"
-                      required
                     />
                     {errors?.name && (
                       <p className="text-sm font-medium text-red-400">
@@ -149,15 +157,18 @@ function ContactMe({ pageInfo }: Props) {
                     )}
                   </div>
                   <div className="flex-1">
+                    <label htmlFor="email" className="sr-only">
+                      Email
+                    </label>
                     <input
                       {...register("email")}
                       className={`contactInput mt-2 xl:mt-0 ${
                         errors?.email && `border-red-500`
                       }`}
+                      id="email"
                       name="email"
                       type="email"
                       placeholder="Enter your email (required)"
-                      required
                     />
                     {errors?.email && (
                       <p className="text-sm font-medium text-red-400">
@@ -167,14 +178,17 @@ function ContactMe({ pageInfo }: Props) {
                   </div>
                 </div>
                 <div>
+                  <label htmlFor="message" className="sr-only">
+                    Message
+                  </label>
                   <textarea
                     {...register("message")}
                     className={`contactInput mt-2 resize-none scrollbar-thin ${
                       errors?.message && `border-red-500`
                     }`}
+                    id="message"
                     name="message"
                     placeholder="Enter your message (required)"
-                    required
                   />
                   {errors?.message && (
                     <p className="text-sm font-medium text-red-400">
@@ -184,10 +198,20 @@ function ContactMe({ pageInfo }: Props) {
                 </div>
                 <button
                   type="submit"
-                  className="bg-[#F7AB0A] mt-4 py-3 px-6 rounded text-[rgb(36,36,36)] font-bold text-lg disabled:bg-slate-400 disabled:text-white"
+                  className="bg-[#F7AB0A] mt-4 py-3 px-6 rounded text-[rgb(36,36,36)] font-bold text-lg flex items-center justify-center disabled:bg-slate-400 disabled:text-white"
                   disabled={isLoading}
                 >
                   {isLoading ? "Sending..." : "Send"}
+                  <motion.span
+                    animate={isLoading ? { x: [0, 0, 0] } : { x: [10, 0, 0] }}
+                    transition={{
+                      duration: 1,
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                    }}
+                  >
+                    <PaperAirplaneIcon className="h-5 w-5 ml-2" />
+                  </motion.span>
                 </button>
               </div>
             </motion.form>
