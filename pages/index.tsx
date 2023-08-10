@@ -2,7 +2,10 @@ import type { GetStaticProps } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ChevronDoubleUpIcon } from "@heroicons/react/24/solid";
+import {
+  ChevronDoubleUpIcon,
+  DocumentArrowDownIcon,
+} from "@heroicons/react/24/solid";
 import About from "../components/About";
 import ContactMe from "../components/ContactMe";
 import Header from "../components/Header";
@@ -10,14 +13,20 @@ import Hero from "../components/Hero";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
 import WorkExperience from "../components/WorkExperience";
-import { Experience, PageInfo, Project, Skill, Social } from "../typings";
+import {
+  Experience,
+  PageInfo,
+  Project,
+  Resume,
+  Skill,
+  Social,
+} from "../typings";
 import { fetchExperiences } from "../utils/fetchExperiences";
 import { fetchPageInfo } from "../utils/fetchPageInfo";
 import { fetchProjects } from "../utils/fetchProjects";
 import { fetchSkills } from "../utils/fetchSkills";
 import { fetchSocials } from "../utils/fetchSocials";
-import { useEffect } from "react";
-import { handleSmoothScroll } from "../utils/updateHashUrl";
+import { fetchResume } from "../utils/fetchResume";
 
 type Props = {
   pageInfo: PageInfo;
@@ -25,30 +34,17 @@ type Props = {
   projects: Project[];
   skills: Skill[];
   socials: Social[];
+  resume: Resume;
 };
 
-const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
-  // useEffect(() => {
-  //   const scrollSnap = document.querySelector(".snap-y");
-  //   scrollSnap?.addEventListener("wheel", (e) => {
-  //     e.preventDefault();
-  //     scrollSnap.scrollBy({
-  //       top: e.deltaY * 2,
-  //     });
-  //   });
-  // }, []);
-
-  // useEffect(() => {
-  //   const delay = 1000; // Set the delay in milliseconds
-  //   const timeoutId = setTimeout(() => {
-  //     const cleanupFunction = handleSmoothScroll();
-  //     return () => {
-  //       clearTimeout(timeoutId);
-  //       cleanupFunction();
-  //     };
-  //   }, delay);
-  // }, []);
-
+const Home = ({
+  pageInfo,
+  experiences,
+  projects,
+  skills,
+  socials,
+  resume,
+}: Props) => {
   return (
     <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-auto overflow-x-hidden scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 z-0">
       <Head>
@@ -91,23 +87,46 @@ const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
       </section>
 
       {/* Footer */}
-      <Link href="#hero">
-        <footer className="absolute xs:bottom-10 xs:right-10 bottom-10 right-10 cursor-pointer">
-          <div className="flex justify-center xl:justify-end">
-            <motion.div
-              animate={{ y: [0, 24, 0] }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                repeatType: "loop",
-              }}
-              className="bg-[#F7AB0A] p-2 rounded-full"
-            >
-              <ChevronDoubleUpIcon className="h-5 w-5 text-[rgb(36,36,36)] rounded-full filter grayscale hover:grayscale-0 cursor-pointer" />
-            </motion.div>
+
+      <footer>
+        {resume?.resumeFile?.asset?.url && (
+          <div className="absolute sm:bottom-10 sm:left-10 bottom-10 left-10 cursor-pointer">
+            <div className="bg-[#F7AB0A] p-2 rounded-full animate-pulse">
+              <a
+                href={resume?.resumeFile?.asset?.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-1 text-[rgb(36,36,36)]"
+                title="Download CV"
+              >
+                <DocumentArrowDownIcon className="h-5 w-5 rounded-full filter grayscale hover:grayscale-0 cursor-pointer" />
+                <span className="hidden xl:flex text-sm font-semibold">
+                  Download CV
+                </span>
+              </a>
+            </div>
           </div>
-        </footer>
-      </Link>
+        )}
+
+        <div className="absolute sm:bottom-10 sm:right-10 bottom-10 right-10 cursor-pointer">
+          <div className="flex justify-center">
+            <Link href="#hero">
+              <div
+                // animate={{ y: [0, 24, 0] }}
+                // transition={{
+                //   duration: 1.5,
+                //   repeat: Infinity,
+                //   repeatType: "loop",
+                // }}
+                className="bg-[#F7AB0A] p-2 rounded-full animate-pulse"
+                title="Back to top"
+              >
+                <ChevronDoubleUpIcon className="h-5 w-5 text-[rgb(36,36,36)] rounded-full filter grayscale hover:grayscale-0 cursor-pointer" />
+              </div>
+            </Link>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
@@ -120,6 +139,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const projects: Project[] = await fetchProjects();
   const skills: Skill[] = await fetchSkills();
   const socials: Social[] = await fetchSocials();
+  const resume: Resume = await fetchResume();
 
   return {
     props: {
@@ -128,6 +148,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       projects,
       skills,
       socials,
+      resume,
     },
     // Next.js will attempt to re-generate the page:
     // - When a request comes in

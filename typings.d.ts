@@ -8,10 +8,16 @@ interface SanityBody {
 interface SanityAsset {
   _ref: string;
   _type: "reference";
+  url?: string;
 }
 
 interface SanityImage {
   _type: "image";
+  asset: SanityAsset;
+}
+
+interface File {
+  _type: "file";
   asset: SanityAsset;
 }
 
@@ -64,4 +70,9 @@ export interface Social extends SanityBody {
   _type: "social";
   title: string;
   url: string;
+}
+
+export interface Resume extends SanityBody {
+  _type: "resume";
+  resumeFile: File;
 }
