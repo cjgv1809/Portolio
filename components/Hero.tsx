@@ -28,8 +28,8 @@ function Hero({ pageInfo }: Props) {
       <BackgroundCircles />
       <img
         src={urlFor(pageInfo?.heroImage).url()}
-        alt="profile picture"
-        className="relative rounded-full h-32 w-32 md:h-56 md:w-56 xl:h-72 xl:w-72 object-cover mx-auto border-4 border-[#F7AB0A] z-10"
+        alt={`${pageInfo?.name}'s profile picture`}
+        className="relative object-cover object-center rounded-full h-32 w-32 md:h-56 md:w-56 xl:h-72 xl:w-72 mx-auto border-4 border-[#F7AB0A] z-10"
       />
       <div className="z-20">
         <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">

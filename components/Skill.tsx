@@ -19,13 +19,16 @@ function Skill({ directionLeft, skill }: Props) {
         transition={{ duration: 1 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
+        whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
         src={urlFor(skill?.image).url()}
-        className="rounded-full w-16 h-16 object-contain border border-gray-500 p-2 bg-white group-hover:shadow-md group-hover:shadow-white transition duration-200 ease-in-out"
+        className="rounded-full w-16 h-16 object-contain border-4 border-gray-500 p-2 bg-white/20"
+        alt={skill?.title}
+        title={skill?.title}
       />
       <div className="">
-        <p className="text-base font-bold opacity-100 text-white group-hover:scale-110 transition duration-200 ease-in-out">
+        <motion.p className="text-base font-bold opacity-100 text-white">
           {skill?.title}
-        </p>
+        </motion.p>
       </div>
     </div>
   );

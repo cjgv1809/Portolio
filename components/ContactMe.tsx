@@ -93,10 +93,10 @@ function ContactMe({ pageInfo }: Props) {
               <div className="hidden group cursor-pointer p-2 space-x-2 transition-all duration-200 ease-in-out bg-slate-200/20 rounded-t xl:flex xl:items-center relative hover:rounded-tr-none">
                 <PhoneIcon className="h-5 w-5 md:h-7 md:w-7 text-[#F7AB0A] animate-pulse" />
                 <motion.p
-                  initial={{ opacity: 0, x: -50 }}
+                  initial={{ opacity: 0, x: -12 }}
                   whileInView={{ opacity: 1, x: -8 }}
                   transition={{ duration: 0.5 }}
-                  className="hidden text-sm whitespace-nowrap text-white font-semibold absolute left-full transform -translate-y-1/2 xl:group-hover:block bg-slate-200/20 p-3 rounded-l-none rounded"
+                  className="hidden text-sm whitespace-nowrap text-white font-medium absolute left-full transform -translate-y-1/2 xl:group-hover:block bg-slate-200/20 p-3 rounded-l-none rounded"
                 >
                   {formatPhoneNumber({ phoneNumber: pageInfo?.phoneNumber })}
                 </motion.p>
@@ -104,10 +104,10 @@ function ContactMe({ pageInfo }: Props) {
               <div className="hidden group cursor-pointer p-2 space-x-2 transition-all duration-200 ease-in-out bg-slate-200/20 xl:flex xl:items-center relative">
                 <EnvelopeIcon className="h-5 w-5 md:h-7 md:w-7 text-[#F7AB0A] animate-pulse" />
                 <motion.p
-                  initial={{ opacity: 0, x: -50 }}
+                  initial={{ opacity: 0, x: -12 }}
                   whileInView={{ opacity: 1, x: -8 }}
                   transition={{ duration: 0.5 }}
-                  className="hidden text-sm whitespace-nowrap text-white font-semibold absolute left-full transform -translate-y-1/2 xl:group-hover:block bg-slate-200/20 p-3 rounded-l-none rounded"
+                  className="hidden text-sm whitespace-nowrap text-white font-medium absolute left-full transform -translate-y-1/2 xl:group-hover:block bg-slate-200/20 p-3 rounded-l-none rounded"
                 >
                   {pageInfo?.email}
                 </motion.p>
@@ -115,10 +115,10 @@ function ContactMe({ pageInfo }: Props) {
               <div className="hidden group cursor-pointer p-2 space-x-2 transition-all duration-200 ease-in-out bg-slate-200/20 rounded-b xl:flex xl:items-center relative hover:rounded-br-none">
                 <MapPinIcon className="h-5 w-5 md:h-7 md:w-7 text-[#F7AB0A] animate-pulse" />
                 <motion.p
-                  initial={{ opacity: 0, x: -50 }}
+                  initial={{ opacity: 0, x: -12 }}
                   whileInView={{ opacity: 1, x: -8 }}
                   transition={{ duration: 0.5 }}
-                  className="hidden text-sm whitespace-nowrap text-white font-semibold absolute left-full transform -translate-y-1/2 xl:group-hover:block bg-slate-200/20 p-3 rounded-l-none rounded"
+                  className="hidden text-sm whitespace-nowrap text-white font-medium absolute left-full transform -translate-y-1/2 xl:group-hover:block bg-slate-200/20 p-3 rounded-l-none rounded"
                 >
                   {pageInfo?.address}
                 </motion.p>
@@ -196,23 +196,17 @@ function ContactMe({ pageInfo }: Props) {
                     </p>
                   )}
                 </div>
-                <button
+                <motion.button
                   type="submit"
-                  className="bg-[#F7AB0A] mt-4 py-3 px-6 rounded text-[rgb(36,36,36)] font-bold text-lg flex items-center justify-center disabled:bg-slate-400 disabled:text-white"
+                  className="bg-[#F7AB0A] group mt-4 py-3 px-6 rounded text-[#242424] font-bold text-lg flex items-center justify-center disabled:bg-slate-400 disabled:text-white hover:bg-[#F7AB0A]/40 duration-300 ease-in-out"
                   disabled={isLoading}
+                  whileHover={{ color: "#FFF" }}
                 >
                   {isLoading ? "Sending..." : "Send"}
-                  <motion.span
-                    animate={isLoading ? { x: [0, 0, 0] } : { x: [10, 0, 0] }}
-                    transition={{
-                      duration: 1,
-                      repeat: Infinity,
-                      repeatType: "reverse",
-                    }}
-                  >
+                  <span className="group-hover:translate-x-5 transform transition-transform duration-300 ease-in-out">
                     <PaperAirplaneIcon className="h-5 w-5 ml-2" />
-                  </motion.span>
-                </button>
+                  </span>
+                </motion.button>
               </div>
             </motion.form>
           </div>

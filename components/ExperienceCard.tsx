@@ -19,7 +19,7 @@ function ExperienceCard({ experience }: Props) {
   }
 
   return (
-    <article className="flex flex-col rounded-lg items-center flex-shrink-0 w-96 max-h-96 overflow-y-auto scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 snap-center bg-[#292929] p-10 mt-20 hover:scale-105 hover:bg-[#F7AB0A]/10 cursor-pointer transition-all duration-300 overflow-hidden">
+    <article className="flex flex-col rounded-lg items-center flex-shrink-0 w-96 max-h-96 overflow-y-auto scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 snap-center bg-[#292929] p-10 mt-20 hover:scale-105 hover:bg-[#F7AB0A]/10 cursor-pointer transition duration-300 ease-in-out overflow-hidden">
       <motion.img
         initial={{ y: -100, opacity: 0 }}
         transition={{ duration: 1.2 }}
@@ -27,7 +27,7 @@ function ExperienceCard({ experience }: Props) {
         viewport={{ once: true }}
         className="w-32 h-32 rounded-full object-cover object-center"
         src={urlFor(experience?.companyImage).url()}
-        alt=""
+        alt={experience?.companyName}
       />
 
       <div className="px-0 md:px-10">
@@ -39,11 +39,12 @@ function ExperienceCard({ experience }: Props) {
               className="w-10 h-10 rounded-full object-cover object-center"
               key={technology._id}
               src={urlFor(technology.image).url()}
-              alt=""
+              alt={technology?.title}
+              title={technology?.title}
             />
           ))}
         </div>
-        <p className="uppercase py-5 text-gray-300 text-base font-extralight">
+        <p className="uppercase py-5 text-gray-300 text-xs font-extralight">
           {new Date(experience?.startDate).toLocaleDateString()} -{" "}
           {experience?.isCurrentlyWorkingHere
             ? "Present"
