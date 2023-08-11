@@ -44,8 +44,8 @@ function ContactMe({ pageInfo }: Props) {
 
   const onSubmit: SubmitHandler<Inputs> = async (formData) => {
     setIsLoading(true);
-    console.log("formData", formData);
-    console.log("errors", errors);
+    // console.log("formData", formData);
+    // console.log("errors", errors);
 
     try {
       const result = await emailjs.send(
@@ -75,7 +75,7 @@ function ContactMe({ pageInfo }: Props) {
 
   return (
     <>
-      <div className="h-screen flex flex-col relative md:max-w-7xl px-5 md:px-10 justify-evenly items-center mx-auto">
+      <div className="h-screen flex relative flex-col text-center md:text-left xl:flex-row max-w-[2000px] px-5 xl:px-10  justify-center xl:space-y-7 mx-auto items-center">
         <h3 className="absolute top-14 md:top-16 uppercase tracking-[20px] text-center text-gray-500 text-lg md:text-2xl">
           Contact
         </h3>
@@ -88,8 +88,8 @@ function ContactMe({ pageInfo }: Props) {
             </span>
           </h4>
 
-          <div className="flex items-center 7xl:relative">
-            <div className="fixed 7xl:absolute left-0 top-1/2 transform -translate-y-1/2 flex flex-col">
+          <div className="flex items-center 3xl:relative 5xl:relative">
+            <div className="fixed 3xl:absolute 5xl:absolute left-0 top-1/2 transform -translate-y-1/2 flex flex-col">
               <div className="hidden group cursor-pointer p-2 space-x-2 transition-all duration-200 ease-in-out bg-slate-200/20 rounded-t xl:flex xl:items-center relative hover:rounded-tr-none">
                 <PhoneIcon className="h-5 w-5 md:h-7 md:w-7 text-[#F7AB0A] animate-pulse" />
                 <motion.p
@@ -151,7 +151,7 @@ function ContactMe({ pageInfo }: Props) {
                       placeholder="Enter your name (required)"
                     />
                     {errors?.name && (
-                      <p className="text-sm font-medium text-red-400">
+                      <p className="text-sm text-left font-medium text-red-400">
                         {errors?.name?.message}
                       </p>
                     )}
@@ -171,7 +171,7 @@ function ContactMe({ pageInfo }: Props) {
                       placeholder="Enter your email (required)"
                     />
                     {errors?.email && (
-                      <p className="text-sm font-medium text-red-400">
+                      <p className="text-sm text-left font-medium text-red-400">
                         {errors?.email?.message}
                       </p>
                     )}
@@ -191,7 +191,7 @@ function ContactMe({ pageInfo }: Props) {
                     placeholder="Enter your message (required)"
                   />
                   {errors?.message && (
-                    <p className="text-sm font-medium text-red-400">
+                    <p className="text-sm text-left font-medium text-red-400">
                       {errors?.message?.message}
                     </p>
                   )}

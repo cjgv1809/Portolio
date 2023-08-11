@@ -26,7 +26,7 @@ function Skill({ directionLeft, skill }: Props) {
         title={skill?.title}
       />
       <div className="">
-        <motion.p className="text-base font-bold opacity-100 text-white">
+        <motion.p className="text-xs md:text-base font-bold text-white">
           {skill?.title}
         </motion.p>
       </div>

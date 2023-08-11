@@ -13,25 +13,25 @@ function Projects({ projects }: Props) {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="h-screen flex flex-col relative text-center md:text-left md:flex-row px-10 justify-evenly items-center mx-auto"
+      className="h-screen flex relative flex-col text-center md:text-left xl:flex-row max-w-[2000px] px-5 xl:px-10  justify-center xl:space-y-7 mx-auto items-center"
     >
       <h3 className="absolute top-14 md:top-16 uppercase tracking-[20px] text-center text-gray-500 text-lg md:text-2xl">
         Projects
       </h3>
 
-      <div className="mt-24 relative w-full flex overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 snap-x snap-mandatory z-20">
+      <div className="mt-24 mx-auto relative w-full flex items-center gap-5 overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 snap-x snap-mandatory z-20">
         {/* Projects */}
-        {projects?.map((project, index) => (
+        {projects?.map((project) => (
           <div
             key={project._id}
-            className="w-screen flex flex-col max-w-sm  mx-auto snap-center space-y-6 items-center justify-center md:p-6 bg-[#242424]/80 border border-slate-200/20 rounded-lg"
+            className="w-screen flex flex-col snap-center space-y-6 items-center justify-center md:p-6"
           >
             <motion.img
               initial={{ y: -100, opacity: 0 }}
               transition={{ duration: 1.2 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
-              className="w-80 h-auto object-contain object-center"
+              className="w-80 h-auto object-contain object-center rounded-xl shadow-xl"
               src={urlFor(project?.image).url()}
               alt={project?.title}
             />
@@ -56,24 +56,20 @@ function Projects({ projects }: Props) {
               {/* <p className="hidden sm:flex text-lg text-center md:text-left">
                 {project?.summary}
               </p> */}
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-8">
                 <a
                   href={project?.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <button className="heroButton shadow-2xl shadow-[#F7AB0A]">
-                    Github
-                  </button>
+                  <button className="heroButton">Github</button>
                 </a>
                 <a
                   href={project?.deployedUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <button className="heroButton shadow-2xl shadow-[#F7AB0A]">
-                    Demo
-                  </button>
+                  <button className="heroButton">Demo</button>
                 </a>
               </div>
             </div>
@@ -81,7 +77,7 @@ function Projects({ projects }: Props) {
         ))}
       </div>
 
-      <div className="w-full absolute top-[35%] bg-[#F7AB0A]/10 left-0 h-[300px] -skew-y-12" />
+      <div className="w-full absolute top-[35%] bg-[#F7AB0A]/10 left-0 h-[440px] -skew-y-12" />
     </motion.div>
   );
 }

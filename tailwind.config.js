@@ -7,7 +7,9 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        "7xl": "3000px",
+        "3xl": "1920px",
+        "4xl": "2560px",
+        "5xl": "3000px",
       },
       colors: {
         "primary-color": "var(--primary-color)",
