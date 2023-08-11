@@ -79,4 +79,5 @@ export interface Social extends SanityBody {
 export interface Resume extends SanityBody {
   _type: "resume";
   resumeFile: File;
+  downloadFilename: string;
 }

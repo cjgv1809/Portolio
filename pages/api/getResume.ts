@@ -11,7 +11,8 @@ const query = groq`
       asset->{
         url
       }
-    }
+    },
+    downloadFilename
   }
 `;
 

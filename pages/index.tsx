@@ -87,7 +87,6 @@ const Home = ({
       </section>
 
       {/* Footer */}
-
       <footer className="relative">
         {resume?.resumeFile?.asset?.url && (
           <div className="absolute sm:bottom-10 sm:left-10 bottom-10 left-10 cursor-pointer">
@@ -96,6 +95,7 @@ const Home = ({
                 href={resume?.resumeFile?.asset?.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                download={resume?.downloadFilename}
                 className="flex items-center space-x-1 text-[rgb(36,36,36)]"
                 title="Download CV"
               >
@@ -112,12 +112,6 @@ const Home = ({
           <div className="flex justify-center">
             <Link href="#hero">
               <div
-                // animate={{ y: [0, 24, 0] }}
-                // transition={{
-                //   duration: 1.5,
-                //   repeat: Infinity,
-                //   repeatType: "loop",
-                // }}
                 className="bg-[#F7AB0A] p-2 rounded-full animate-pulse"
                 title="Back to top"
               >
