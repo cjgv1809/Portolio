@@ -29,6 +29,11 @@ export default {
       of: [{ type: "reference", to: { type: "skill" } }],
     },
     {
+      name: "githubUrl",
+      title: "Repository URL",
+      type: "url",
+    },
+    {
       name: "deployedUrl",
       title: "Deployed URL",
       type: "url",

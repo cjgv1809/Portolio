@@ -24,25 +24,23 @@ function Projects({ projects }: Props) {
         {projects?.map((project, index) => (
           <div
             key={project._id}
-            className="w-screen flex flex-col snap-center space-y-4 items-center justify-center md:p-4"
+            className="w-screen flex flex-col max-w-sm  mx-auto snap-center space-y-6 items-center justify-center md:p-6 bg-[#242424]/80 border border-slate-200/20 rounded-lg"
           >
             <motion.img
               initial={{ y: -100, opacity: 0 }}
               transition={{ duration: 1.2 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
-              className="w-80 h-auto object-cover object-center"
+              className="w-80 h-auto object-contain object-center"
               src={urlFor(project?.image).url()}
               alt={project?.title}
             />
 
-            <div className="space-y-4 px-0 md:px-10 max-w-3xl mx-auto">
+            <div className="space-y-8 px-0 md:px-10 max-w-3xl mx-auto">
               <h4 className="text-3xl font-semibold text-center">
                 <span className="underline decoration-[#F7AB0A]/50">
-                  Case Study {index + 1} of {projects?.length}:
-                </span>{" "}
-                <br />
-                {project?.title}
+                  {project?.title}
+                </span>
               </h4>
               <div className="flex items-center space-x-4 justify-center">
                 {project?.technologies?.map((technology) => (
@@ -51,12 +49,33 @@ function Projects({ projects }: Props) {
                     className="w-10 h-10 mb-5 sm:mb-0"
                     src={urlFor(technology?.image).url()}
                     alt={`${technology?.title} logo`}
+                    title={technology?.title}
                   />
                 ))}
               </div>
-              <p className="hidden sm:flex text-lg text-center md:text-left">
+              {/* <p className="hidden sm:flex text-lg text-center md:text-left">
                 {project?.summary}
-              </p>
+              </p> */}
+              <div className="flex items-center space-x-4">
+                <a
+                  href={project?.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="heroButton shadow-2xl shadow-[#F7AB0A]">
+                    Github
+                  </button>
+                </a>
+                <a
+                  href={project?.deployedUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="heroButton shadow-2xl shadow-[#F7AB0A]">
+                    Demo
+                  </button>
+                </a>
+              </div>
             </div>
           </div>
         ))}
