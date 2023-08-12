@@ -19,34 +19,34 @@ function Projects({ projects }: Props) {
         Projects
       </h3>
 
-      <div className="mt-24 mx-auto relative w-full flex items-center gap-5 overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 snap-x snap-mandatory z-20">
+      <div className="mt-24 pb-5 mx-auto relative w-full flex items-start gap-10 overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 snap-x snap-mandatory z-20">
         {/* Projects */}
         {projects?.map((project) => (
           <div
             key={project._id}
-            className="w-screen flex flex-col snap-center space-y-6 items-center justify-center md:p-6"
+            className="w-screen h-full flex flex-col space-y-6 snap-center items-center justify-between md:p-6 user-select-none"
           >
             <motion.img
               initial={{ y: -100, opacity: 0 }}
               transition={{ duration: 1.2 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
-              className="w-80 h-auto object-contain object-center rounded-xl shadow-xl"
+              className="w-80 aspect-video object-cover object-center rounded-xl shadow-xl pointer-events-none"
               src={urlFor(project?.image).url()}
               alt={project?.title}
             />
 
-            <div className="space-y-8 px-0 md:px-10 max-w-3xl mx-auto">
-              <h4 className="text-3xl font-semibold text-center">
-                <span className="underline decoration-[#F7AB0A]/50">
+            <div className="space-y-6 flex flex-col items-center">
+              <h4 className="text-2xl lg:text-3xl flex flex-wrap font-semibold text-center">
+                <span className="underline text-center decoration-[#F7AB0A]/50">
                   {project?.title}
                 </span>
               </h4>
-              <div className="flex items-center space-x-4 justify-center">
+              <div className="flex flex-wrap items-center space-x-4 justify-center">
                 {project?.technologies?.map((technology) => (
                   <img
                     key={technology._id}
-                    className="w-10 h-10 mb-5 sm:mb-0"
+                    className="w-10 h-10"
                     src={urlFor(technology?.image).url()}
                     alt={`${technology?.title} logo`}
                     title={technology?.title}
@@ -77,7 +77,7 @@ function Projects({ projects }: Props) {
         ))}
       </div>
 
-      <div className="w-full absolute top-[35%] bg-[#F7AB0A]/10 left-0 h-[440px] -skew-y-12" />
+      <div className="w-full absolute top-[35%] bg-[#F7AB0A]/10 left-0 h-[380px] -skew-y-12" />
     </motion.div>
   );
 }

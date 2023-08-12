@@ -89,7 +89,7 @@ function ContactMe({ pageInfo }: Props) {
           </h4>
 
           <div className="flex items-center 3xl:relative 5xl:relative">
-            <div className="fixed 3xl:absolute 5xl:absolute left-0 top-1/2 transform -translate-y-1/2 flex flex-col">
+            <div className="fixed 3xl:absolute 5xl:absolute left-0 top-1/2 transform -translate-y-1/2 flex flex-col z-50">
               <div className="hidden group cursor-pointer p-2 space-x-2 transition-all duration-200 ease-in-out bg-slate-200/20 rounded-t xl:flex xl:items-center relative hover:rounded-tr-none">
                 <PhoneIcon className="h-5 w-5 md:h-7 md:w-7 text-[#F7AB0A] animate-pulse" />
                 <motion.p
