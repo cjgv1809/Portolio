@@ -31,9 +31,10 @@ function Projects({ projects }: Props) {
               transition={{ duration: 1.2 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
-              className="w-80 aspect-video object-cover object-center rounded-xl shadow-xl pointer-events-none"
+              className="w-80 aspect-video object-cover object-center rounded-xl shadow-lg pointer-events-none"
               src={urlFor(project?.image).url()}
               alt={project?.title}
+              loading="lazy"
             />
 
             <div className="space-y-6 flex flex-col items-center">
@@ -50,6 +51,7 @@ function Projects({ projects }: Props) {
                     src={urlFor(technology?.image).url()}
                     alt={`${technology?.title} logo`}
                     title={technology?.title}
+                    loading="lazy"
                   />
                 ))}
               </div>
@@ -62,14 +64,18 @@ function Projects({ projects }: Props) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <button className="heroButton">Github</button>
+                  <button className="heroButton whitespace-nowrap">
+                    View Github
+                  </button>
                 </a>
                 <a
                   href={project?.deployedUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <button className="heroButton">Demo</button>
+                  <button className="heroButton whitespace-nowrap">
+                    View Demo
+                  </button>
                 </a>
               </div>
             </div>

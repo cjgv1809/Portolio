@@ -24,6 +24,7 @@ function Skill({ directionLeft, skill }: Props) {
         className="rounded-full w-16 h-16 object-contain border-4 border-gray-500 p-2 bg-white/20"
         alt={skill?.title}
         title={skill?.title}
+        loading="lazy"
       />
       <div className="">
         <motion.p className="text-xs md:text-base font-bold text-white">
