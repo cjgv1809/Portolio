@@ -8,9 +8,6 @@ type Props = {
 };
 
 function Modal({ isOpen, message, closeModal }: Props) {
-  console.log("isOpen", isOpen);
-  console.log("message", message);
-  console.log("closeModal", closeModal);
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={closeModal}>

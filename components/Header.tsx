@@ -22,7 +22,7 @@ function Header({ socials }: Props) {
           <SocialIcon
             key={social._id}
             url={social.url}
-            aria-label={social.title}
+            label={social.title}
             target="_blank"
             fgColor="gray"
             bgColor="transparent"

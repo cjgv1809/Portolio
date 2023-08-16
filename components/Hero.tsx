@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Link from "next/link";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import BackgroundCircles from "./BackgroundCircles";
@@ -10,30 +10,40 @@ type Props = {
 };
 
 function Hero({ pageInfo }: Props) {
-  const [text, count] = useTypewriter({
-    loop: true,
-    typeSpeed: 100,
-    deleteSpeed: 50,
-    delaySpeed: 2000,
-    words: [
+  const words = useMemo(
+    () => [
       `Hi, my name is ${pageInfo?.name}.`,
       "UX/UI developer",
       "Frontend developer",
       "React Native developer",
     ],
+    [pageInfo?.name]
+  );
+
+  const [text, count] = useTypewriter({
+    loop: true,
+    typeSpeed: 100,
+    deleteSpeed: 50,
+    delaySpeed: 2000,
+    words: words,
   });
+
+  const heroImageUrl = useMemo(
+    () => urlFor(pageInfo?.heroImage).url(),
+    [pageInfo?.heroImage]
+  );
 
   return (
     <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
       <BackgroundCircles />
       <img
-        src={urlFor(pageInfo?.heroImage).url()}
+        src={heroImageUrl}
         alt={`${pageInfo?.name}'s profile picture`}
         className="relative object-cover object-center rounded-full h-32 w-32 md:h-56 md:w-56 xl:h-72 xl:w-72 mx-auto border-4 border-[#F7AB0A] z-10"
         loading="lazy"
       />
       <div className="z-20">
-        <h2 className="text-sm font-thin uppercase text-gray-400 pb-2 tracking-[15px]">
+        <h2 className="text-sm font-thin uppercase text-gray-500 pb-2 tracking-[15px]">
           {pageInfo?.role}
         </h2>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-300 px-10">

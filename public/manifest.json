@@ -1,0 +1,32 @@
+{
+    "theme_color": "#242424",
+    "background_color": "#f7ab0a",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "name": "Carlos's Portfolio",
+    "description": "A portfolio of Carlos's work and experience in web and mobile development.",
+    "short_name": "Carlos's portfolio",
+    "icons": [
+        {
+            "src": "/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

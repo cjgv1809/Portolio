@@ -47,73 +47,11 @@ const Home = ({
   return (
     <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory mx-auto 2xl:max-w-7xl overflow-y-auto overflow-x-hidden scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 z-0">
       <Head>
-        <html lang="en" />
         <title>Carlos&apos;s Portfolio</title>
-        <meta charSet="UTF-8" />
         <meta
-          name="description"
-          content="I'm a frontend developer specializing in React, Next.js, TypeScript, and React Native."
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
         />
-        <meta
-          name="keywords"
-          content="
-          Carlos Gomes,
-          Carlos Gomes Portfolio,
-          Carlos Gomes Frontend Developer,
-          Carlos Gomes React Developer,
-          Carlos Gomes React Native Developer,
-          Carlos Gomes UI/UX Developer"
-        />
-        <meta name="author" content="Carlos Gomes" />
-        {/* <!-- Open Graph / Facebook --> */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.yourportfolio.com" />
-        <meta
-          property="og:title"
-          content="Your Name - Frontend Developer Portfolio"
-        />
-        <meta
-          property="og:description"
-          content="I'm a frontend developer specializing in React, Next.js, TypeScript, and React Native."
-        />
-        <meta
-          property="og:image"
-          content="https://www.yourportfolio.com/og-image.jpg"
-        />
-        {/* <!-- Twitter --> */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://www.yourportfolio.com" />
-        <meta
-          property="twitter:title"
-          content="Your Name - Frontend Developer Portfolio"
-        />
-        <meta
-          property="twitter:description"
-          content="I'm a frontend developer specializing in React, Next.js, TypeScript, and React Native."
-        />
-        <meta
-          property="twitter:image"
-          content="https://www.yourportfolio.com/twitter-image.jpg"
-        />
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/site.webmanifest" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/* Header */}
