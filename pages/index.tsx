@@ -129,12 +129,12 @@ const Home = ({
 export default Home;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const pageInfo: PageInfo = await fetchPageInfo();
-  const experiences: Experience[] = await fetchExperiences();
-  const projects: Project[] = await fetchProjects();
-  const skills: Skill[] = await fetchSkills();
-  const socials: Social[] = await fetchSocials();
-  const resume: Resume = await fetchResume();
+  const pageInfo: PageInfo = (await fetchPageInfo()) as PageInfo;
+  const experiences: Experience[] = (await fetchExperiences()) as Experience[];
+  const projects: Project[] = (await fetchProjects()) as Project[];
+  const skills: Skill[] = (await fetchSkills()) as Skill[];
+  const socials: Social[] = (await fetchSocials()) as Social[];
+  const resume: Resume = (await fetchResume()) as Resume;
 
   return {
     props: {
