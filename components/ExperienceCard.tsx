@@ -28,7 +28,6 @@ function ExperienceCard({ experience }: Props) {
         className="w-32 h-32 rounded-full object-cover object-center"
         src={urlFor(experience?.companyImage).url()}
         alt={experience?.companyName}
-        loading="lazy"
       />
 
       <div className="px-0 md:px-10">

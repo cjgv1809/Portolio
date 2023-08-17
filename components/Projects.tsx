@@ -38,8 +38,8 @@ function Projects({ projects }: Props) {
             />
 
             <div className="space-y-6 flex flex-col items-center">
-              <h4 className="text-2xl lg:text-3xl flex flex-wrap font-semibold text-center">
-                <span className="underline text-center decoration-[#F7AB0A]/50">
+              <h4 className="text-xl lg:text-2xl flex flex-wrap font-semibold text-center">
+                <span className="text-center transition duration-300 ease-in-out hover:text-[#F7AB0A]/50">
                   {project?.title}
                 </span>
               </h4>
@@ -64,18 +64,14 @@ function Projects({ projects }: Props) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <button className="heroButton whitespace-nowrap">
-                    View Github
-                  </button>
+                  <button className="projectLinks">View Github</button>
                 </a>
                 <a
                   href={project?.deployedUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <button className="heroButton whitespace-nowrap">
-                    View Demo
-                  </button>
+                  <button className="projectLinks">View Demo</button>
                 </a>
               </div>
             </div>
