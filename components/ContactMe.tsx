@@ -44,13 +44,11 @@ function ContactMe({ pageInfo }: Props) {
 
   const onSubmit: SubmitHandler<Inputs> = async (formData) => {
     setIsLoading(true);
-    // console.log("formData", formData);
-    // console.log("errors", errors);
 
     try {
       const result = await emailjs.send(
-        "service_mut0c2q",
-        "template_thakryh",
+        `${process.env.NEXT_PUBLIC_EMAILJS_SERV}`,
+        `${process.env.NEXT_PUBLIC_EMAILJS_TEMP}`,
         {
           from_name: formData.name,
           from_email: formData.email,
@@ -58,7 +56,7 @@ function ContactMe({ pageInfo }: Props) {
           to_name: "Carlos",
           to_email: "carlos.gomes.1809@gmail.com",
         },
-        "EGA3c3SScoEOK7aOz"
+        `${process.env.NEXT_PUBLIC_EMAILJS_API}`
       );
       console.log("result", result);
       toast.success("The message has been sent.");
