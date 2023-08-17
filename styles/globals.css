@@ -12,7 +12,7 @@
     @apply outline-none w-full bg-slate-400/10 rounded border border-[#242424] px-2 py-4 text-gray-500 placeholder-gray-500 transition-all focus:border-[#F7AB0A]/40 focus:bg-slate-400/20 focus:placeholder-gray-400;
   }
   .projectLinks {
-    @apply px-4 py-2 text-base underline underline-offset-4 whitespace-nowrap text-gray-400 transition-all duration-300 ease-in-out hover:underline hover:decoration-[#F7AB0A]/40 hover:text-[#F7AB0A]/40;
+    @apply px-4 py-2 text-base underline underline-offset-4 whitespace-nowrap text-gray-400 font-medium transition-all duration-300 ease-in-out hover:underline hover:decoration-[#F7AB0A]/40 hover:text-[#F7AB0A]/40;
   }
 }
 

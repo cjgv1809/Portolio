@@ -27,7 +27,7 @@ function About({ pageInfo }: Props) {
           viewport={{ once: true }}
           src={urlFor(pageInfo?.profilePicture).url()}
           alt={`${pageInfo?.name} photo`}
-          className="mt-20 md:mt-0 flex-shrink-0 w-32 h-32 sm:w-56 sm:h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-64 border-4 border-[#F7AB0A]"
+          className="mt-20 md:mt-0 flex-shrink-0 w-28 h-28 sm:w-56 sm:h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-64 border-4 border-[#F7AB0A]"
           loading="lazy"
         />
 
@@ -36,12 +36,12 @@ function About({ pageInfo }: Props) {
           transition={{ duration: 1.2 }}
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: true }}
-          className="space-y-10 px-0 md:px-10 max-w-xl md:max-w-2xl"
+          className="space-y-2 sm:space-y-10 px-0 md:px-10 max-w-xl md:max-w-2xl"
         >
           <h4 className="hidden sm:flex  md:text-4xl font-semibold">
             Here is a little background
           </h4>
-          <p className="text-lg text-gray-400">
+          <p className="text-lg text-gray-400 font-medium">
             {pageInfo?.backgroundInformation}
           </p>
         </motion.div>

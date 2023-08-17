@@ -21,7 +21,7 @@ function Skill({ directionLeft, skill }: Props) {
         viewport={{ once: true }}
         whileHover={{ scale: 1.1, transition: { duration: 0.5 } }}
         src={urlFor(skill?.image).url()}
-        className="rounded-full w-16 h-16 object-contain border-4 border-gray-500 p-2 bg-white/20"
+        className="rounded-full w-12 h-12 sm:w-16 sm:h-16 object-contain border-4 border-gray-500 p-2 bg-white/10"
         alt={skill?.title}
         title={skill?.title}
         loading="lazy"

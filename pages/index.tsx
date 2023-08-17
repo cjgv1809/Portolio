@@ -90,7 +90,7 @@ const Home = ({
       {/* Footer */}
       <footer className="relative">
         {resume?.resumeFile?.asset?.url && (
-          <div className="absolute sm:bottom-10 sm:left-10 bottom-10 left-10 cursor-pointer">
+          <div className="absolute bottom-0 sm:bottom-10 left-5 sm:left-10 cursor-pointer">
             <div className="bg-[#F7AB0A] p-2 rounded-full animate-pulse">
               <a
                 href={resume?.resumeFile?.asset?.url}
@@ -109,7 +109,7 @@ const Home = ({
           </div>
         )}
 
-        <div className="absolute sm:bottom-10 sm:right-10 bottom-10 right-10 cursor-pointer">
+        <div className="absolute bottom-0 sm:bottom-10 right-5 sm:right-10 cursor-pointer">
           <div className="flex justify-center items-center">
             <Link href="#hero">
               <div
