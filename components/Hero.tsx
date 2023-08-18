@@ -43,7 +43,12 @@ function Hero({ pageInfo }: Props) {
         loading="lazy"
       />
       <div className="z-20">
-        <h2 className="text-sm font-thin uppercase text-gray-500 pb-2 tracking-[15px]">
+        <h2
+          className="text-sm font-thin uppercase text-gray-500 pb-2 tracking-[15px]"
+          role="heading"
+          aria-level={2}
+          aria-label={pageInfo?.role}
+        >
           {pageInfo?.role}
         </h2>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-300 px-10">
@@ -52,18 +57,20 @@ function Hero({ pageInfo }: Props) {
         </h1>
 
         <nav className="pt-5">
-          <Link href="#about">
-            <button className="heroButton">About</button>
-          </Link>
-          <Link href="#experience">
-            <button className="heroButton">Experience</button>
-          </Link>
-          <Link href="#skills">
-            <button className="heroButton">Skills</button>
-          </Link>
-          <Link href="#projects">
-            <button className="heroButton">Projects</button>
-          </Link>
+          <ul className="flex justify-center items-center flex-wrap cursor-pointer">
+            <Link href="#about">
+              <li className="heroLink">About</li>
+            </Link>
+            <Link href="#experience">
+              <li className="heroLink">Experience</li>
+            </Link>
+            <Link href="#skills">
+              <li className="heroLink">Skills</li>
+            </Link>
+            <Link href="#projects">
+              <li className="heroLink">Projects</li>
+            </Link>
+          </ul>
         </nav>
       </div>
     </div>

@@ -41,6 +41,7 @@ function Header({ socials }: Props) {
           <SocialIcon
             className="cursor-pointer"
             network="email"
+            label="Email"
             fgColor="gray"
             bgColor="transparent"
             style={{ height: 35, width: 35 }}

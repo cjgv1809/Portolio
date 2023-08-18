@@ -5,8 +5,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
 
 @layer components {
-  .heroButton {
-    @apply px-6 py-3 border border-[#242424] rounded-full uppercase text-xs tracking-widest text-gray-500 transition-all hover:border-[#F7AB0A]/40 hover:text-[#F7AB0A]/40;
+  .heroLink {
+    @apply px-6 py-3 cursor-pointer border border-[#242424] rounded-full uppercase text-xs tracking-widest text-gray-500 transition-all hover:border-[#F7AB0A]/40 hover:text-[#F7AB0A]/40;
   }
   .contactInput {
     @apply outline-none w-full bg-slate-400/10 rounded border border-[#242424] px-2 py-4 text-gray-500 placeholder-gray-500 transition-all focus:border-[#F7AB0A]/40 focus:bg-slate-400/20 focus:placeholder-gray-400;

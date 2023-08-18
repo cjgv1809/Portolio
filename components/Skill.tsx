@@ -13,7 +13,7 @@ function Skill({ directionLeft, skill }: Props) {
     <div className="group cursor-pointer flex flex-col justify-between items-center">
       <motion.img
         initial={{
-          x: directionLeft ? -200 : 200,
+          x: directionLeft ? -60 : 60,
           opacity: 0,
         }}
         transition={{ duration: 1 }}

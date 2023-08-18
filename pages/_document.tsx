@@ -36,37 +36,40 @@ class MyDocument extends Document {
           <meta name="msapplication-tap-highlight" content="no" />
           {/* <!-- Open Graph / Facebook --> */}
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://www.yourportfolio.com" />
+          <meta
+            property="og:url"
+            content="https://portfolio-cjgv1809.vercel.app/"
+          />
           <meta
             property="og:title"
-            content="Your Name - Frontend Developer Portfolio"
+            content="Carlos Gomes - Frontend Developer Portfolio"
           />
           <meta
             property="og:description"
             content="I'm a frontend developer specializing in React, Next.js, TypeScript, and React Native."
           />
-          <meta
+          {/* <meta
             property="og:image"
-            content="https://www.yourportfolio.com/og-image.jpg"
-          />
+            content="https://portfolio-cjgv1809.vercel.app/og-image.jpg"
+          /> */}
           {/* <!-- Twitter --> */}
           <meta property="twitter:card" content="summary_large_image" />
           <meta
             property="twitter:url"
-            content="https://www.yourportfolio.com"
+            content="https://portfolio-cjgv1809.vercel.app/"
           />
           <meta
             property="twitter:title"
-            content="Your Name - Frontend Developer Portfolio"
+            content="Carlos Gomes - Frontend Developer Portfolio"
           />
           <meta
             property="twitter:description"
             content="I'm a frontend developer specializing in React, Next.js, TypeScript, and React Native."
           />
-          <meta
+          {/* <meta
             property="twitter:image"
-            content="https://www.yourportfolio.com/twitter-image.jpg"
-          />
+            content="https://portfolio-cjgv1809.vercel.app/twitter-image.jpg"
+          /> */}
           <link
             rel="apple-touch-icon"
             sizes="180x180"

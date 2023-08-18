@@ -19,7 +19,7 @@ function Projects({ projects }: Props) {
         Projects
       </h3>
 
-      <div className="mt-24 pb-5 mx-auto relative w-full flex items-start gap-10 overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 snap-x snap-mandatory z-20">
+      <div className="mt-24 pb-5 mx-auto relative w-full flex items-center gap-10 overflow-x-auto overflow-y-hidden scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 snap-x snap-mandatory z-20">
         {/* Projects */}
         {projects?.map((project) => (
           <div

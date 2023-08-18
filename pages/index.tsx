@@ -48,10 +48,7 @@ const Home = ({
     <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory mx-auto 2xl:max-w-7xl overflow-y-auto overflow-x-hidden scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 z-0">
       <Head>
         <title>Carlos&apos;s Portfolio</title>
-        <meta
-          name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
-        />
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
       </Head>
 
       {/* Header */}
