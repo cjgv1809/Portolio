@@ -66,8 +66,6 @@ function ExperienceCard({ experience }: Props) {
           </ul>
         </div>
       </article>
-
-      <div className="w-full absolute top-[35%] bg-[#F7AB0A]/10 left-0 h-[380px] skew-y-12 -z-10" />
     </div>
   );
 }
